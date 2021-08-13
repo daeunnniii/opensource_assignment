@@ -1,0 +1,287 @@
+<!--전체노트 보여주는 화면(page4)-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="theme-color" content="#000000">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+      integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+      crossorigin="anonymous"></script>
+    
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Jekyll v3.8.6">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+
+    <title>page4_Miraclenote</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.4/examples/album/">
+    <link href="http://fonts.googleapis.com/earlyaccess/jejugothic.css" rel="stylesheet"> 
+    <!-- Bootstrap core CSS -->
+    <link href="/docs/4.4/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SI27wrMjH3ZZ89r4o+fGIJtnzkAnFs3E4qz9DIYioCQ5l9Rd/7UAa8DHcaL8jkWt" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" href="/docs/4.4/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
+    <link rel="icon" href="/docs/4.4/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
+    <link rel="icon" href="/docs/4.4/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
+    <link rel="manifest" href="/docs/4.4/assets/img/favicons/manifest.json">
+    <link rel="mask-icon" href="/docs/4.4/assets/img/favicons/safari-pinned-tab.svg" color="#563d7c">
+    <link rel="icon" href="/docs/4.4/assets/img/favicons/favicon.ico">
+    <meta name="msapplication-config" content="/docs/4.4/assets/img/favicons/browserconfig.xml">
+    <meta name="theme-color" content="#563d7c">
+</head>
+<body id="body-pd">
+    <div class="l-navbar" id="navbar">
+        <nav class="nav">
+            <div>
+                <div class="nav__brand">
+                    <ion-icon name="menu-outline" class="nav__toggle" id="nav-toggle"></ion-icon>
+                    <a href="#" class="nav__logo">Miraclenote</a>
+                </div>
+                <div class="nav__list">
+                    <a href="#" class="nav__link active">
+                        <ion-icon name="home-outline" class="nav__icon"></ion-icon>
+                        <span class="nav_name">Dashboard</span>
+                    </a>
+                    <a href="#" class="nav__link">
+                        <ion-icon name="chatbubbles-outline" class="nav__icon"></ion-icon>
+                        <span class="nav_name">Share</span>
+                    </a>
+
+                    <div href="#" class="nav__link collapse">
+                        <ion-icon name="folder-outline" class="nav__icon"></ion-icon>
+                        <span class="nav_name">Mynotes</span>
+
+                        <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
+
+                        <ul class="collapse__menu">
+                            <a href="#" class="collapse__sublink">Data</a>
+                            <a href="#" class="collapse__sublink">Group</a>
+                            <a href="#" class="collapse__sublink">Members</a>
+                        </ul>
+                    </div>
+
+                    <a href="#" class="nav__link">
+                        <ion-icon name="pie-chart-outline" class="nav__icon"></ion-icon>
+                        <span class="nav_name">Analytics</span>
+                    </a>
+
+                    <div href="#" class="nav__link collapse">
+                        <ion-icon name="people-outline" class="nav__icon"></ion-icon>
+                        <span class="nav_name">Team</span>
+
+                        <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
+
+                        <ul class="collapse__menu">
+                            <a href="#" class="collapse__sublink">Data</a>
+                            <a href="#" class="collapse__sublink">Group</a>
+                            <a href="#" class="collapse__sublink">Members</a>
+                        </ul>
+                    </div>
+
+                    <a href="#" class="nav__link">
+                        <ion-icon name="settings-outline" class="nav__icon"></ion-icon>
+                        <span class="nav_name">Settings</span>
+                    </a>
+                </div>
+                <a href="#" class="nav__link">
+                    <ion-icon name="log-out-outline" class="nav__icon"></ion-icon>
+                    <span class="nav_name">Log out</span>
+                </a>
+            </div>
+        </nav>
+    </div>
+    
+    <!--html 내용넣기-->
+    <main role="main">
+    <div class="bg-light">
+        <div class="container"><br>
+            <h4>최근 노트</h4>
+            <hr>
+           
+    <div class="album">
+      <div class="container">
+      <div class="row">
+
+        <div class="col-md-4">
+          <div class="card mb-4 shadow-sm">
+            <img src="project01.jpg" width="100%" height="225"> 
+            <div class="card-body">
+              <p class="card-text">v_1<br/>회의록<br/><small>ryuhaa</small></p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-sm btn-outline-secondary"><a href="mynote.html">View</a></button>
+                </div>
+                <small class="text-muted">2021-08-08</small>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-md-4">  
+          <div class="card mb-4 shadow-sm">
+            <img src="project02.jpg" width="100%" height="225"> 
+            <div class="card-body">
+              <p class="card-text">v_1<br/>회의록<br/><small>ryuhaa</small></p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                </div>
+                <small class="text-muted">2021-08-08</small>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card mb-4 shadow-sm">
+            <img src="project03.jpg" width="100%" height="225"> 
+            <div class="card-body">
+              <p class="card-text">v_1<br/>회의록<br/><small>ryuhaa</small></p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                </div>
+                <small class="text-muted">2021-08-08</small>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card mb-4 shadow-sm">
+            <img src="project04.jpg" width="100%" height="225"> 
+            <div class="card-body">
+              <p class="card-text">v_1<br/>회의록<br/><small>ryuhaa</small></p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                </div>
+                <small class="text-muted">2021-06-18</small>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card mb-4 shadow-sm">
+            <img src="project05.jpg" width="100%" height="225"> 
+            <div class="card-body">
+              <p class="card-text">v_1<br/>회의록<br/><small>ryuhaa</small></p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                </div>
+                <small class="text-muted">2021-07-23</small>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card mb-4 shadow-sm">
+            <img src="project06.jpg" width="100%" height="225"> 
+            <div class="card-body">
+              <p class="card-text">v_1<br/>회의록<br/><small>ryuhaa</small></p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                </div>
+                <small class="text-muted">2021-07-13</small>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      <div class="col-md-4">
+        <div class="card mb-4 shadow-sm">
+          <img src="project07.jpg" width="100%" height="225"> 
+          <div class="card-body">
+            <p class="card-text">v_1<br/>회의록<br/><small>ryuhaa</small></p>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="btn-group">
+                <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+              </div>
+              <small class="text-muted">2021-08-05</small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+        <div class="col-md-4">
+          <div class="card mb-4 shadow-sm">
+            <img src="project08.jpg" width="100%" height="225"> 
+            <div class="card-body">
+              <p class="card-text">v_1<br/>회의록<br/><small>ryuhaa</small></p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                </div>
+                <small class="text-muted">2021-06-25</small>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card mb-4 shadow-sm">
+            <img src="project09.jpg" width="100%" height="225"> 
+            <div class="card-body">
+              <p class="card-text">v_1<br/>회의록<br/><small>ryuhaa</small></p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                </div>
+                <small class="text-muted">2021-05-19</small>
+              </div>
+            </div>
+          </div>
+        </div>
+
+              <div class="col-md-4">
+                <div class="card mb-4 shadow-sm">
+                  <img src="https://cdn-ssl.s7.disneystore.com/is/image/DisneyShopping/7409056023748" width="100%" height="225" />
+                  <div class="card-body">
+                    <p class="card-text">v_1<br/>회의록<br/><small>ryuhaa</small></p>
+                    <div class="d-flex justify-content-between align-items-center">
+                      <div class="btn-group">
+                        <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                      </div>
+                      <small class="text-muted">2021-06-28</small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+      
+              <div class="col-md-4">
+                <div class="card mb-4 shadow-sm">
+                  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNggbOCK5p5EFXtgelfa9kHYPNLw7gosYDxsvGtSNE7n36ywz2&s" width="100%" height="225" />
+                  <div class="card-body">
+                    <p class="card-text">v_1<br/>회의록<br/><small>ryuhaa</small></p>
+                    <div class="d-flex justify-content-between align-items-center">
+                      <div class="btn-group">
+                        <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                      </div>
+                      <small class="text-muted">2021-07-08</small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+      
+
+    
+    <!-- IONICONS -->
+    <script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>
+    <!-- JS -->
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
