@@ -1,24 +1,23 @@
 <!--노트 로딩중인 화면(page6)-->
 <!DOCTYPE HTML>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">  
-        <link rel='stylesheet' href='assets/css/loadingnote.css'>
-    </head>
-    <body>
-        <canvas id="text" width="500" height="100"></canvas>
-        <canvas id="stage" width="500" height="100"></canvas>
-        <form id="form">
-        <input type="text" id="inputText" value="" />
-        <br><input type="text" id="inputText" value="HELLO" /></br>
-        <input type="submit" value="TRY IT" />
-        </form>
-        <!--이 js 효과 불러오기가 왜 안되는지 모르겠습니다..내일까지 고쳐보려구요-->
-        <script src="assets/js/loadingnote.js"></script>
-        
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/loadingnote.css' %}">
+</head>
+<body>
+<canvas id="text" width="500" height="100"></canvas>
+<canvas id="stage" width="500" height="100"></canvas>
+<form id="form">
+    <input type="text" id="inputText" value="" />
+    <br><input type="text" id="inputText" value="HELLO" /></br>
+    <input type="submit" value="TRY IT" />
+</form>
+<!--이 js 효과 불러오기가 왜 안되는지 모르겠습니다..내일까지 고쳐보려구요-->
+<script src="{% static 'js/loadingnote.js' %}"></script>
 
-    </body>
+</body>
 </html>
 
 
