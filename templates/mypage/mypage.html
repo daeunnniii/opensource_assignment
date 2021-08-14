@@ -1,4 +1,5 @@
 <!--마이페이지 화면(page8)-->
+{% load static %}
 <!doctype html>
 <html lang="ko">
 <head>
@@ -14,10 +15,12 @@
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Jekyll v3.8.6">
 
-    <title>page8_Miraclenote</title>
+    <title>Miraclenote</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.4/examples/album/">
     <link href="http://fonts.googleapis.com/earlyaccess/jejugothic.css" rel="stylesheet">
+     <!-- CSS -->
+     <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
     <!-- Bootstrap core CSS -->
     <link href="/docs/4.4/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SI27wrMjH3ZZ89r4o+fGIJtnzkAnFs3E4qz9DIYioCQ5l9Rd/7UAa8DHcaL8jkWt" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -34,7 +37,7 @@
     <meta name="msapplication-config" content="/docs/4.4/assets/img/favicons/browserconfig.xml">
     <meta name="theme-color" content="#563d7c">
 </head>
-<body class="bg-light">
+<body class="body-pd">
 {% include "navbar.html" %}
 <main role="main">
     <div class="bg-light">
@@ -56,13 +59,104 @@
             <div class="media text-muted pt-3">
                 <svg class="bd-placeholder-img mr-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 32x32"><title>Placeholder</title><rect width="100%" height="100%" fill="#007bff"/><text x="50%" y="50%" fill="#007bff" dy=".3em">32x32</text></svg>
                 <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
-                    <strong class="d-block text-gray-dark">당신의 계정은</strong>{{<장고db에서 계정정보 불러오기>}}
+                    <strong class="d-block text-gray-dark">당신의 남은 이용시간은</strong> <남은 시간으로 할지 횟수로 할지> 
             </div>
-
+            <div style="margin-top:16px">
+                <div class="col-12">
+                    <div>
+                        <div class="card" style="width: 500px;">
+                            <div class="card-header" style="padding-bottom:8px;">
+                                <strong style="font-size: 18px;"><i class="fas fa-user-lock"></i>&nbsp;&nbsp;비밀번호 변경</strong>
+                            </div>
+                            <div class="card-body">
+                                <form method="POST" novalidate>
+                                    {% csrf_token %}
+                                    <!--기존 비밀번호-->
+                                    <div class="mb-4 md-form">
+                                        <label name="label_old_password" for="{{ password_change_form.old_password.id_for_label }}"><i
+                                                class="fas fa-lock"></i>&nbsp;&nbsp;{{ password_change_form.old_password.label }}</label>
+                                        {{ password_change_form.old_password }}
+                                        <script type="text/javascript">
+                                            if (document.getElementsByName('old_password')[0].value != '') {
+                                                document.getElementsByName('label_old_password')[0].setAttribute('class',
+                                                    'active');
+                                            }
+                                        </script>
+                                        {% if password_change_form.old_password.errors %}
+                                        <script type="text/javascript">
+                                            document.getElementsByName('old_password')[0].setAttribute('class',
+                                                'form-control is-invalid')
+                                        </script>
+                                        {% for error in password_change_form.old_password.errors %}
+                                        <div class="invalid-feedback" style="margin-bottom:-10px;">
+                                            {{ error }}
+                                        </div>
+                                        {% endfor %}
+                                        {% endif %}
+                                    </div>
+                                    <!--새 비밀번호-->
+                                    <div class="mb-4 md-form">
+                                        <label name="label_new_password1" for="{{ password_change_form.new_password1.id_for_label }}"><i
+                                                class="fas fa-unlock"></i>&nbsp;&nbsp;{{ password_change_form.new_password1.label }}</label>
+                                        {{ password_change_form.new_password1 }}
+                                        <script type="text/javascript">
+                                            if (document.getElementsByName('new_password1')[0].value != '') {
+                                                document.getElementsByName('label_new_password1')[0].setAttribute('class',
+                                                    'active');
+                                            }
+                                        </script>
+                                        {% if password_change_form.new_password1.errors %}
+                                        <script type="text/javascript">
+                                            document.getElementsByName('new_password1')[0].setAttribute('class',
+                                                'form-control is-invalid')
+                                        </script>
+                                        {% for error in password_change_form.new_password1.errors %}
+                                        <div class="invalid-feedback" style="margin-bottom:-10px;">
+                                            {{ error }}
+                                        </div>
+                                        {% endfor %}
+                                        {% endif %}
+                                    </div>
+                                    <!--새 비밀번호확인-->
+                                    <div class="mb-4 md-form">
+                                        <label name="label_new_password2" for="{{ password_change_form.new_password2.id_for_label }}"><i
+                                                class="fas fa-unlock-alt"></i>&nbsp;&nbsp;{{ password_change_form.new_password2.label }}</label>
+                                        {{ password_change_form.new_password2 }}
+                                        <script type="text/javascript">
+                                            if (document.getElementsByName('new_password2')[0].value != '') {
+                                                document.getElementsByName('label_new_password2')[0].setAttribute('class',
+                                                    'active');
+                                            }
+                                        </script>
+                                        {% if password_change_form.new_password2.errors %}
+                                        <script type="text/javascript">
+                                            document.getElementsByName('new_password2')[0].setAttribute('class',
+                                                'form-control is-invalid')
+                                        </script>
+                                        {% for error in password_change_form.new_password2.errors %}
+                                        <div style="white-space: nowrap;" class="invalid-feedback">
+                                            {{ error }}
+                                        </div>
+                                        {% endfor %}
+                                        {% endif %}
+                                        <small style="margin-left: 4px; margin-top:8px; margin-bottom: 30px;" class="form-text text-muted">
+                                            최소 8개의 숫자와 문자 또는 특수기호를 입력해주세요.
+                                        </small>
+                                    <div style="text-align: center; margin-bottom:-25px;">
+                                        <p style="color:gray; margin-bottom: 4px;"><i class="fas fa-exclamation-triangle"></i>&nbsp;{{ user.user_id }} 계정의 비밀번호를 변경합니다.</p>
+                                        <a onclick="location.href='/users/profile/'" class="btn btn-sm" id="back_btn"><i class="fa fa-reply"></i>&nbsp;돌아가기</a>
+                                        <button type="submit" class="btn btn-sm" id="detail_btn"><i class="fas fa-check"></i>&nbsp;변경하기</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="media text-muted pt-3">
                 <svg class="bd-placeholder-img mr-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 32x32"><title>Placeholder</title><rect width="100%" height="100%" fill="#007bff"/><text x="50%" y="50%" fill="#007bff" dy=".3em">32x32</text></svg>
                 <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
-                    <strong class="d-block text-gray-dark">당신의 남은 이용시간은</strong>{{<남은 시간으로 할지 횟수로 할지>}}
+                    <strong class="d-block text-gray-dark">당신의 남은 이용시간은</strong> <남은 시간으로 할지 횟수로 할지> 
             </div>
             <small class="d-block text-right mt-3">
                 <a href="#">All updates</a>
@@ -90,6 +184,10 @@
         alert('준비중입니다!');
     }
 </script>
+<!-- IONICONS -->
+<script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>
+<!-- JS -->
+<script src="{% static 'js/main.js' %}"></script>
 </body>
 </html>
 
