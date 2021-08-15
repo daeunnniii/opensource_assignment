@@ -81,25 +81,22 @@ body {
     left: 0;
 }
 
-.bd-placeholder-img {
-    font-size: 1.125rem;
-    text-anchor: middle;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
+
+/* 추가 */
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+* { font-family: 'Nanum Gothic', sans-serif; }
+
+.spaceLeft {
+  margin-left: 10px;
+}
+.spaceRight {
+  margin-right: 10px;
 }
 
-@media (min-width: 768px) {
-    .bd-placeholder-img-lg {
-        font-size: 3.5rem;
-    }
+/* custom checkbox */
+.btn span.fa {
+	opacity: 0;
 }
-
-h4,h6,p{
-    font-family: 'Jeju Gothic', sans-serif;
-}
-
-a:hover{
-    text-decoration: none;
+.btn.active span.fa {
+	opacity: 1;
 }

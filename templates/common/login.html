@@ -1,24 +1,20 @@
-<!--안내 및 로그인 화면(page2,3)-->
 {% load static %}
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-
-    <title>admin login</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <title>MiracleNote</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
 </head>
 
 <body>
-  <div class="show-login-btn"><i class="fas fa-sign-in-alt"></i> Show Login Form</div>
-
-  <div class="login-box">
+<div class="show-login-btn"><i class="fas fa-sign-in-alt"></i> Show Login Form</div><br><br><br>
+<div class="login-box">
     <div class="hide-login-btn">
-      <i class="fas fa-times"></i>
+        <i class="fas fa-times"></i>
     </div>
     <form method="post" class="login-form" action="{% url 'common:login' %}">
         {% csrf_token %}
@@ -26,11 +22,12 @@
         <h1>Welcome</h1>
         <input class="txtb" type="text" name="username" placeholder="Username" value="{{ form.username.value|default_if_none:'' }}">
         <input class="txtb" type="password" name="password" placeholder="Password" value="{{ form.password.value|default_if_none:'' }}">
-        <input class="login-btn" type="submit" name="" value="Login">
+        <button type="submit" class="login-btn">Login</button>
+        <h5><a href="{% url 'common:signup' %}">회원가입 하기</a></h5>
     </form>
-  </div>
-  <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-  <script src="{% static 'js/main.js' %}"></script>
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="{% static 'js/main.js' %}"></script>
 </body>
 
 </html>
