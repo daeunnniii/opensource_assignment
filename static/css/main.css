@@ -11283,3 +11283,18 @@ textarea.form-control-lg {
   width: 4rem;
   font-size: 2rem;
 }
+
+
+
+* {
+  font-family: "montserrat", sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-image: linear-gradient(45deg, #9fbaa8, #31354c);
+}
+
+@import url('https://fonts.googleapis.com/css?family=Nanum+Gothic|Nanum+Myeongjo&display=swap&subset=korean'); body { font-family: 'Nanum Myeongjo', serif; } p { font-family: 'Nanum Gothic', sans-serif; }
+
