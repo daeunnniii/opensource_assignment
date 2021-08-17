@@ -8,8 +8,9 @@ import scipy as sp
 import math
 from gensim.models import Word2Vec
 import warnings
+import os
 
-def scan_vocabulary(sents, tokenize=None, min_count=4):
+def scan_vocabulary(sents, tokenize=None, min_count=3):
     counter = Counter(w for sent in sents for w in tokenize(sent))
     counter = {w:c for w,c in counter.items() if c >= min_count}
     idx_to_vocab = [w for w, _ in sorted(counter.items(), key=lambda x:-x[1])]
@@ -34,7 +35,7 @@ def vectorize(tokens, vocab_to_idx):
     x = csr_matrix((data, (rows, cols)), shape=(n_sents, n_terms))
     return x
 
-def sent_graph(sents, tokenize=None, min_count=4, min_sim=0.3, similarity=None, vocab_to_idx=None, verbose=False):
+def sent_graph(sents, tokenize=None, min_count=3, min_sim=0.3, similarity=None, vocab_to_idx=None, verbose=False):
     if vocab_to_idx is None:
         idx_to_vocab, vocab_to_idx = scan_vocabulary(sents, tokenize, min_count)
     else:
@@ -172,7 +173,7 @@ def cosine_sent_sim(s1, s2):
         prod += v * s2.get(k, 0)
     return prod / (norm1 * norm2)
 
-def word_graph(sents, tokenize=None, min_count=4, window=2, min_cooccurrence=2, vocab_to_idx=None, verbose=False):
+def word_graph(sents, tokenize=None, min_count=3, window=2, min_cooccurrence=2, vocab_to_idx=None, verbose=False):
     if vocab_to_idx is None:
         idx_to_vocab, vocab_to_idx = scan_vocabulary(sents, tokenize, min_count)
     else:
@@ -237,7 +238,7 @@ def pagerank(x, df=0.85, max_iter=30, bias=None):
     return R
 
 class KeywordSummarizer:
-    def __init__(self, sents=None, tokenize=None, min_count=4, window=-1, min_cooccurrence=2, vocab_to_idx=None, df=0.85, max_iter=30, verbose=False):
+    def __init__(self, sents=None, tokenize=None, min_count=3, window=-1, min_cooccurrence=2, vocab_to_idx=None, df=0.85, max_iter=30, verbose=False):
 
         self.tokenize = tokenize
         self.min_count = min_count
@@ -270,7 +271,7 @@ class KeywordSummarizer:
 
 
 class KeysentenceSummarizer:
-    def __init__(self, sents=None, tokenize=None, min_count=4,
+    def __init__(self, sents=None, tokenize=None, min_count=3,
                  min_sim=0.3, similarity=None, vocab_to_idx=None,
                  df=0.85, max_iter=30, verbose=False):
 
@@ -326,13 +327,17 @@ def textrank_w2v_to_vis(texts):
     for word, rank in keywords:
         if word.index('/') > 1:
             keyword_list.append(word)
-
+    print(keyword_list)
     ##word2vec##
     warnings.filterwarnings(action='ignore', category=UserWarning, module='gensim')
-    model = Word2Vec.load("kowiki.bin")
+    model = Word2Vec.load('static/kowiki.bin')
     vocab, nodes, edges = [], [], []
+    if len(keyword_list) > 5:
+        n = 5
+    else:
+        n = len(keyword_list)
 
-    for i in range(5):
+    for i in range(n):
         if keyword_list[i] not in vocab:
             center = i*15
             dic1 = {"id": center, "label": keyword_list[i][:keyword_list[i].index('/')], "group": keyword_list[i][keyword_list[i].index('/')+1:]}
@@ -355,4 +360,7 @@ def textrank_w2v_to_vis(texts):
                 vocab_num = vocab.index(result[j][0])
                 dic2 = {"from":center, "to":vocab_num}
                 edges.append(dic2)
+    for k in range(n-1):
+        dic2 = {"from":k*15, "to":(k+1)*15}
+        edges.append(dic2)
     return nodes, edges
