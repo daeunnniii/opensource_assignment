@@ -48,170 +48,26 @@
             <h4>최근 노트</h4>
             <hr>
             <div class="album container row">
-                <div class="col-md-4">
-                    <div class="card mb-4 shadow-sm">
-                        <img src="project01.jpg" width="100%" height="225">
-                        <div class="card-body">
-                            <p class="card-text">v_1<br/>회의록<br/><small>ryuhaa</small></p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-sm btn-outline-secondary"><a href="mynote.html">View</a></button>
+                {% if note_list %}
+                    {% for note in note_list %}
+                        <div class="col-md-4">
+                            <div class="card mb-4 shadow-sm">
+                                <div width="100%" style="width:100%; height:255px; border:solid 1px gray"></div>
+                                <div class="card-body">
+                                    <p class="card-text">v_1<br/>{{ note.subject }}<br/><small>ryuhaa</small></p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="btn-group">
+                                            <button type="button" class="btn btn-sm btn-outline-secondary"><a href="mynote.html">View</a></button>
+                                        </div>
+                                        <small class="text-muted">{{ note.reg_date }}</small>
+                                    </div>
                                 </div>
-                                <small class="text-muted">2021-08-08</small>
                             </div>
                         </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="card mb-4 shadow-sm">
-                        <img src="project02.jpg" width="100%" height="225">
-                        <div class="card-body">
-                            <p class="card-text">v_1<br/>회의록<br/><small>ryuhaa</small></p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                                </div>
-                                <small class="text-muted">2021-08-08</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="card mb-4 shadow-sm">
-                        <img src="project03.jpg" width="100%" height="225">
-                        <div class="card-body">
-                            <p class="card-text">v_1<br/>회의록<br/><small>ryuhaa</small></p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                                </div>
-                                <small class="text-muted">2021-08-08</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="card mb-4 shadow-sm">
-                        <img src="project04.jpg" width="100%" height="225">
-                        <div class="card-body">
-                            <p class="card-text">v_1<br/>회의록<br/><small>ryuhaa</small></p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                                </div>
-                                <small class="text-muted">2021-06-18</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="card mb-4 shadow-sm">
-                        <img src="project05.jpg" width="100%" height="225">
-                        <div class="card-body">
-                            <p class="card-text">v_1<br/>회의록<br/><small>ryuhaa</small></p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                                </div>
-                                <small class="text-muted">2021-07-23</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="card mb-4 shadow-sm">
-                        <img src="project06.jpg" width="100%" height="225">
-                        <div class="card-body">
-                            <p class="card-text">v_1<br/>회의록<br/><small>ryuhaa</small></p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                                </div>
-                                <small class="text-muted">2021-07-13</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="card mb-4 shadow-sm">
-                        <img src="project07.jpg" width="100%" height="225">
-                        <div class="card-body">
-                            <p class="card-text">v_1<br/>회의록<br/><small>ryuhaa</small></p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                                </div>
-                                <small class="text-muted">2021-08-05</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="card mb-4 shadow-sm">
-                        <img src="project08.jpg" width="100%" height="225">
-                        <div class="card-body">
-                            <p class="card-text">v_1<br/>회의록<br/><small>ryuhaa</small></p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                                </div>
-                                <small class="text-muted">2021-06-25</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="card mb-4 shadow-sm">
-                        <img src="project09.jpg" width="100%" height="225">
-                        <div class="card-body">
-                            <p class="card-text">v_1<br/>회의록<br/><small>ryuhaa</small></p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                                </div>
-                                <small class="text-muted">2021-05-19</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="card mb-4 shadow-sm">
-                        <img src="https://cdn-ssl.s7.disneystore.com/is/image/DisneyShopping/7409056023748" width="100%" height="225" />
-                        <div class="card-body">
-                            <p class="card-text">v_1<br/>회의록<br/><small>ryuhaa</small></p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                                </div>
-                                <small class="text-muted">2021-06-28</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="card mb-4 shadow-sm">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNggbOCK5p5EFXtgelfa9kHYPNLw7gosYDxsvGtSNE7n36ywz2&s" width="100%" height="225" />
-                        <div class="card-body">
-                            <p class="card-text">v_1<br/>회의록<br/><small>ryuhaa</small></p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                                </div>
-                                <small class="text-muted">2021-07-08</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                    {% endfor %}
+                {% else %}
+                    <p>질문이 없습니다.</p>
+                {% endif %}
             </div></div>
     </div>
 </main>
