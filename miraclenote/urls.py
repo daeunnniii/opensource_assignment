@@ -6,4 +6,5 @@ urlpatterns = [
     path('', include('common.urls')),
     path('mynote/', include('mynote.urls')),
     path('mypage/', include('mypage.urls')),
+    path('addnote/', include('addnote.urls')),
 ]

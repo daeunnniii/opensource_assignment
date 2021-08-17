@@ -1,0 +1,40 @@
+{% load static %}
+<!--노트 생성하는 화면(page5)-->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+
+
+    <title>page5_Miraclenote</title>
+</head>
+<body id="body-pd">
+{% include "navbar.html" %}
+<!-- 내용 입력폼 -->
+<div class="container"><br>
+    <h4>여러분만의 특별한 노트를 만들어보세요</h4><br/>
+    <form method = "POST" action = "{% url 'addnote:savenote' %}" enctype="multipart/form-data">
+        {% csrf_token%}
+        노트명 : <input type = "text" id = "subject" name = "subject" size = "12" ><br/><br/>
+        노트 설명 : <textarea name = "note_description" id = "note_description" rows = "7" cols = "40" wrap = "virtual" placeholder="원하는 내용을 입력해 주세요"></textarea><br/>
+        파일첨부 : <input type = "file" id = "audio" name = "audio" size = "12" onchange="setThumbnail(event);"><br/>
+        <input type="hidden" id="file_route" name="file_route"/> 
+        <small>wav 확장자를 지원합니다. </small>
+        <input type="submit" vlaue="저장"/>
+    </form>
+</div>
+
+<!-- IONICONS -->
+<script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>
+<!-- JS -->
+<script src="{% static 'js/main.js' %}"></script>
+<script> 
+    function setThumbnail(event) {
+        document.getElementById('file_route').value=document.getElementById('audio').files[0].name;
+    }        
+</script> 
+</body>
+</html>
