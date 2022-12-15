@@ -24,13 +24,6 @@ spec:
         ports:
         - containerPort: 8000
           name: miraclenote
-        volumeMounts:
-          - name: miraclenote-data
-            mountPath: /storage
-      volumes:
-      - name: miraclenote-data
-        hostPath:
-          path: /storage
 ---
 apiVersion: v1
 kind: Service
