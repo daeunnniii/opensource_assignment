@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-      PROJECT_ID = 'oss-20190928’
+      PROJECT_ID = 'oss-20190928'
       CLUSTER_NAME = 'kube-20190928'
       LOCATION = 'asia-northeast3-a'
       CREDENTIALS_ID = 'gke'
@@ -34,10 +34,10 @@ pipeline {
 				branch 'master'
 			}
           steps{
-            sh “sed -i ‘s/miraclenote:latest/miraclenote:${env.BUILD_ID}/g’ deployment.yaml”
-            step([$class: ‘KubernetesEngineBuilder’, projectId: env.PROJECT_ID, 
+            sh "sed -i 's/miraclenote:latest/miraclenote:${env.BUILD_ID}/g' manifests.yaml"
+            step([$class: 'KubernetesEngineBuilder', projectId: env.PROJECT_ID, 
               clusterName: env.CLUSTER_NAME, location: env.LOCATION, 
-              manifestPattern: ‘deployment.yaml’, credentialsId: env.CREDENTIALS_ID, 
+              manifestPattern: 'manifests.yaml', credentialsId: env.CREDENTIALS_ID, 
               verifyDeployments: true])
           }
         }
