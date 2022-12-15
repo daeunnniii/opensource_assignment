@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: miraclenote
+  namespace: test-daeun
+  labels:
+    app: miraclenote
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app: miraclenote
+  template:
+    metadata:
+      labels:
+        app: miraclenote
+        tier: miraclenote
+    spec:
+      containers:
+      - name: miraclenote
+        image: daeunnniii/miraclenote:1.0
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8000
+          name: miraclenote
+        volumeMounts:
+          - name: miraclenote-data
+            mountPath: /storage
+      volumes:
+      - name: miraclenote-data
+        hostPath:
+          path: /storage
