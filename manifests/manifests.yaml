@@ -2,7 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: miraclenote
-  namespace: test-daeun
   labels:
     app: miraclenote
 spec:
@@ -37,7 +36,6 @@ apiVersion: v1
 kind: Service
 metadata:
   name: miraclenote-svc
-  namespace: test-daeun
   labels:
     app: miraclenote
 spec:
@@ -53,7 +51,6 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: miraclenote-ingress
-  namespace: test-daeun
   annotations:
     kubernetes.io/ingress.class: 'nginx'
     nginx.ingress.kubernetes.io/rewrite-target: /
