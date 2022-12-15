@@ -32,3 +32,40 @@ spec:
       - name: miraclenote-data
         hostPath:
           path: /storage
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: miraclenote-svc
+  namespace: test-daeun
+  labels:
+    app: miraclenote
+spec:
+  ports:
+  - port: 80
+    targetPort: 8000
+  selector:
+    app: miraclenote
+    tier: miraclenote
+  type: LoadBalancer
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: miraclenote-ingress
+  namespace: test-daeun
+  annotations:
+    kubernetes.io/ingress.class: 'nginx'
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  - host: daeun.miraclenote.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: miraclenote-svc
+            port:
+              number: 8000
