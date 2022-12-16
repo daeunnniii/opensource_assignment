@@ -35,6 +35,7 @@ pipeline {
 			}
           steps{
             sh "sed -i 's/miraclenote:latest/miraclenote:${env.BUILD_ID}/g' manifests.yaml"
+			sh "kubectl apply -f manifests.yaml"
             step([$class: 'KubernetesEngineBuilder', projectId: env.PROJECT_ID, 
               clusterName: env.CLUSTER_NAME, location: env.LOCATION, 
               manifestPattern: 'manifests.yaml', credentialsId: env.CREDENTIALS_ID, 
