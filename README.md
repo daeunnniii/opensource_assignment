@@ -1,6 +1,6 @@
 # ✨Miraclenote
 회의 녹음파일을 통해 자동 키워드 추출 및 브레인스토밍을 지원하는 웹 사이트, **Miraclenote**
-
+ 
 # 🐹프로젝트 소개
 * Miraclenote는 word2vec과 textrank를 이용하여 자동으로 키워드 추출 및 브레인스토밍을 지원하는 음성인식 프로그램입니다.
 * Miraclenote의 main server를 django framework를 통해 구현했습니다.
