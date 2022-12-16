@@ -1,5 +1,5 @@
 FROM python:3.8
-MAINTAINER storyda1@naver.com
+LABEL maintainer "Daeun Lee <storyda1@naver.com>"
 
 RUN apt -y update && apt -y dist-upgrade
 WORKDIR /Miraclenote
